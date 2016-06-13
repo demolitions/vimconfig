@@ -31,10 +31,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
-"Plug 'vim-airline' 
-"Bund 'captbaritone/better-indent-support-for-php-with-html'
-"Plugin '2072/PHP-Indenting-for-VIm'
 
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'pangloss/vim-javascript'
+Plug 'airblade/vim-gitgutter'
+Plug 'ervandew/supertab'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Add plugins to &runtimepath
 call plug#end()
