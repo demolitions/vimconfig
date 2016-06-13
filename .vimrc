@@ -34,12 +34,26 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
-Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
 Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'stanangeloff/php.vim'
+
+Plug 'pangloss/vim-javascript'
+"Plug 'jelera/vim-javascript-syntax'
+Plug 'nono/jquery.vim'
+
+Plug 'elzr/vim-json'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+
+Plug 'othree/html5.vim'
+Plug 'gregsexton/matchtag'
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -52,3 +66,17 @@ syntax on
 let g:DirDiffExcludes = ".svn,*.zip,CVS,*.class,*.exe,.*.swp,.tags,tags"
 let g:DirDiffIgnore = "Id:,Revision:,Date:"
 let g:DirDiffWindowSize = 12
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" airline config
+set laststatus=2
+let g:airline_powerline_fonts = 1
