@@ -31,6 +31,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
+"Plug 'vim-airline' 
+"Bund 'captbaritone/better-indent-support-for-php-with-html'
+"Plugin '2072/PHP-Indenting-for-VIm'
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -40,3 +44,6 @@ filetype plugin on
 filetype indent on
 syntax on
 
+let g:DirDiffExcludes = ".svn,*.zip,CVS,*.class,*.exe,.*.swp,.tags,tags"
+let g:DirDiffIgnore = "Id:,Revision:,Date:"
+let g:DirDiffWindowSize = 12
