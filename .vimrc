@@ -8,23 +8,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 " Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+"Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -32,28 +32,32 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
-Plug 'airblade/vim-gitgutter'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'nathanaelkane/vim-indent-guides'
 
+" version control
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+" PHP 
 Plug 'stanangeloff/php.vim'
-
+" JS
 Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
 Plug 'nono/jquery.vim'
-
 Plug 'elzr/vim-json'
+" CSS
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
-
+" HTML
 Plug 'othree/html5.vim'
 Plug 'gregsexton/matchtag'
-
+" FTP Sync
+Plug 'eshion/vim-sync'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -80,3 +84,9 @@ let g:syntastic_check_on_wq = 0
 " airline config
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+" signify config
+let g:signify_vcs_list = [ 'svn' ]
+
+" jquery config
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
