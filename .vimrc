@@ -45,6 +45,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 " PHP 
 Plug 'stanangeloff/php.vim'
+"Plug 'shawncplus/phpcomplete.vim'
 " JS
 Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
@@ -67,10 +68,6 @@ filetype plugin on
 filetype indent on
 syntax on
 
-let g:DirDiffExcludes = ".svn,*.zip,CVS,*.class,*.exe,.*.swp,.tags,tags"
-let g:DirDiffIgnore = "Id:,Revision:,Date:"
-let g:DirDiffWindowSize = 12
-
 " Syntastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -81,6 +78,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_lua_checkers = ["luac", "luacheck"]
+let g:syntastic_lua_luacheck_args = "--no-unused-args" 
 " airline config
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -90,3 +89,15 @@ let g:signify_vcs_list = [ 'svn' ]
 
 " jquery config
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+let g:DirDiffExcludes = ".svn,*.zip,CVS,*.class,*.exe,.*.swp,.tags,tags"
+let g:DirDiffIgnore = "Id:,Revision:,Date:"
+let g:DirDiffWindowSize = 12
+
+set tabstop=4
+
+nnoremap <F10> :NERDTreeToggle<cr>
+nnoremap <Up> :echomsg "use k"<cr>
+nnoremap <Down> :echomsg "use j"<cr>
+nnoremap <Left> :echomsg "use h"<cr>
+nnoremap <Right> :echomsg "use l"<cr>
