@@ -90,6 +90,11 @@ let g:signify_vcs_list = [ 'svn' ]
 " jquery config
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
+" vim-sync config
+nnoremap <C-U> <ESC>:call SyncUploadFile()<CR>
+nnoremap <C-D> <ESC>:call SyncDownloadFile()<CR>
+
+
 let g:DirDiffExcludes = ".svn,*.zip,CVS,*.class,*.exe,.*.swp,.tags,tags"
 let g:DirDiffIgnore = "Id:,Revision:,Date:"
 let g:DirDiffWindowSize = 12
