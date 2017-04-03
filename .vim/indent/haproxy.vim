@@ -10,17 +10,17 @@ endif
 let b:did_indent = 1
 
 " [-- local settings (must come before aborting the script) --]
-setlocal indentexpr=NagiosIndentRow(v:lnum,1)
+setlocal indentexpr=HaProxyIndentRow(v:lnum,1)
 setlocal indentkeys=o,O,*<Return>,<>>,<<>,/,{,}
 
 set cpo-=C
 
 " [-- finish, if the function already exists --]
-if exists('*NagiosIndentRow')
+if exists('*HaProxyIndentRow')
 	finish
 endif
 
-fun! NagiosIndentRow(lnum, use_syntax_check)
+fun! HaProxyIndentRow(lnum, use_syntax_check)
 	" Find a non-empty line above the current line.
 	let lnum = prevnonblank(a:lnum - 1)
 
@@ -32,16 +32,13 @@ fun! NagiosIndentRow(lnum, use_syntax_check)
 	let prevline=getline(lnum)
 	let line=getline(a:lnum)
 	let ind=indent(lnum)
-	let inddelta=0
-	if match(line, '^\s*}') == 0
-		"if this is a closing tag line, reduce its indentation
-		let inddelta = 0 - &sw
-	elseif match(prevline,'.*{\s*$') == 0
+	if match(line, '^\s*\(global\|defaults\|frontend\|backend\|listen\)') == 0
+		"if this is a keyword line, reduce its indentation
+		let ind = 0 
+	else
 		"if previous line is a opening tag line, increase its indentation
-		let inddelta = &sw
+		let ind = &sw
 	endif
-
-	let ind = ind + inddelta
 
 	return ind
 endfun
